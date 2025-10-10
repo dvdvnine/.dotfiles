@@ -1,15 +1,22 @@
-- clean:
-    ~/.local/share/fonts:
-      recursive: true
+- defaults:
+    link:
+      glob: true
+      relink: true
+
+- create:
+    - ~/.local/share/fonts/:
+      mode: 0755
+
+- clean: ["~/.local/share/fonts"]
 
 - link:
-  ~/.local/share/fonts/:
-  path: personal/fonts/*
-  create: true
-  glob: true
+    ~/.local/share/fonts/: personal/fonts/MonoLisa/Static/**
+
+- link:
+    ~/.local/share/fonts/: "personal/fonts/Dank Mono/**"
 
 - shell:
     - command: fc-cache -fv
       description: Update font cache
-      stdout: true
+      stdout: false
       stderr: true
