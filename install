@@ -20,3 +20,5 @@ run_dotbot() {
     -d "$BASEDIR" \
     -c "$config" $ARGS
 }
+
+run_dotbot "steps/fonts.yml" || true

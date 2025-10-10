@@ -1,0 +1,15 @@
+- clean:
+    ~/.local/share/fonts:
+      recursive: true
+
+- link:
+  ~/.local/share/fonts/:
+  path: personal/fonts/*
+  create: true
+  glob: true
+
+- shell:
+    - command: fc-cache -fv
+      description: Update font cache
+      stdout: true
+      stderr: true
